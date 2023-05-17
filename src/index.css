@@ -5,3 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+@media only screen and (max-width: 576px) {
+    .display-hide-in-sm{
+        display: none;
+    }
+  }
+

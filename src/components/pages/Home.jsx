@@ -1,7 +1,9 @@
+import Slider from "../layouts/Slider";
+
 const Home = () => {
   return (
-    <div>
-      <h4>Home page</h4>
+    <div className="">
+      <Slider></Slider>
     </div>
   );
 };
