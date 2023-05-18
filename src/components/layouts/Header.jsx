@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import { Button, Tooltip } from "@material-tailwind/react";
+import { Tooltip } from "@material-tailwind/react";
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
@@ -104,7 +104,7 @@ const Header = () => {
                       type="button"
                       className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
-                      <Link to="/login">Login</Link>
+                      <Link to="/login">Login/Resister</Link>
                     </button>
                   )}
                 </div>

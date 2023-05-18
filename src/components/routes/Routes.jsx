@@ -3,6 +3,7 @@ import App from "../layouts/App";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/ttt",
+        element: (
+          <PrivateRoutes>
+            <div>hhhhhhhhhhhhh</div>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
