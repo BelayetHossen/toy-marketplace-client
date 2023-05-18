@@ -1,6 +1,9 @@
-import { Disclosure, Menu } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { Button, Tooltip } from "@material-tailwind/react";
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
@@ -14,6 +17,16 @@ function classNames(...classes) {
 }
 
 const Header = () => {
+  const { auth, user, logOut } = useContext(AuthContext);
+  const location = useLocation();
+  const pathName = location.pathname;
+
+  const handleLogout = () => {
+    logOut()
+      .then((result) => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-600">
@@ -66,26 +79,34 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
-                    type="button"
-                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    <Link to="/login">Login</Link>
-                  </button>
-
-                  {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
-                    <div>
-                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span className="sr-only">Open user menu</span>
+                  {user ? (
+                    <span className="flex items-center">
+                      <Tooltip
+                        content={auth.currentUser?.displayName}
+                        placement="bottom-start"
+                      >
                         <img
                           className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                           alt=""
                         />
-                      </Menu.Button>
-                    </div>
-                  </Menu>
+                      </Tooltip>
+
+                      <Link
+                        onClick={handleLogout}
+                        className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-2"
+                      >
+                        Logout
+                      </Link>
+                    </span>
+                  ) : (
+                    <button
+                      type="button"
+                      className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    >
+                      <Link to="/login">Login</Link>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
