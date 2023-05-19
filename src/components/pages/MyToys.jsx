@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const MyToys = () => {
@@ -29,7 +29,7 @@ const MyToys = () => {
                     <label>{index + 1}</label>
                   </th>
                   <td>
-                    <div className="flex items-center space-x-3">
+                    <div key={toy._id} className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img src={toy.photoUrl} alt={toy.name} />
@@ -43,12 +43,18 @@ const MyToys = () => {
                   <td>{toy.category}</td>
                   <td>{toy.seller}</td>
                   <td>
-                    <button className="btn btn-sm bg-yellow-400 hover:bg-yellow-600 border-none">
+                    <Link
+                      to={`/toy/edit/${toy._id}`}
+                      className="btn btn-sm bg-yellow-400 hover:bg-yellow-600 border-none"
+                    >
                       <FaEdit></FaEdit>
-                    </button>
-                    <button className="btn btn-sm bg-red-600 hover:bg-red-700 ml-2 border-none">
+                    </Link>
+                    <Link
+                      to={`/toy/delete/${toy._id}`}
+                      className="btn btn-sm bg-red-600 hover:bg-red-700 ml-2 border-none"
+                    >
                       <FaTrash></FaTrash>
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               </>
