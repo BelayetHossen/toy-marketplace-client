@@ -57,7 +57,11 @@ const EditToy = () => {
           console.log(data);
           if (data.modifiedCount == 1) {
             toast.success("Data updated successfully! Redirecting .......");
-            navigate(`/myToys/${auth?.currentUser?.email}`, { replace: true });
+            setTimeout(() => {
+              navigate(`/myToys/${auth?.currentUser?.email}`, {
+                replace: true,
+              });
+            }, 2000);
           }
         });
     } else {

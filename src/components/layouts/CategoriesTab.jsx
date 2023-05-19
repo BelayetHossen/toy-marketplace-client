@@ -57,7 +57,10 @@ const CategoriesTab = () => {
     ],
   });
   return (
-    <div className="max-w-7xl px-2 py-20 sm:px-6 lg:px-8 mx-auto">
+    <div className="max-w-7xl px-2 py-16 sm:px-6 lg:px-8 mx-auto">
+      <h4 className="text-2xl py-4 text-center uppercase text-gray-600">
+        Shop by category
+      </h4>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl p-1">
           {Object.keys(categories).map((category) => (

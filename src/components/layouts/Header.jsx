@@ -19,14 +19,16 @@ function classNames(...classes) {
 const Header = () => {
   const { auth, user, logOut } = useContext(AuthContext);
 
-  // const location = useLocation();
-  // const pathName = location.pathname;
+  const location = useLocation();
+  const pathName = location.pathname;
 
   const handleLogout = () => {
     logOut()
       .then((result) => {})
       .catch((error) => console.error(error));
   };
+
+  const myToysURL = `/myToys/${auth?.currentUser?.email}`;
 
   return (
     <div>
@@ -63,20 +65,34 @@ const Header = () => {
                     <div className="flex space-x-4">
                       <Link
                         to="/"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          pathName == "/" ? "bg-orange-600" : ""
+                        }`}
                       >
                         Home
                       </Link>
                       <Link
-                        to="/"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                        to="/blogs"
+                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          pathName == "/blogs" ? "bg-orange-600" : ""
+                        }`}
                       >
-                        Home
+                        Blogs
+                      </Link>
+                      <Link
+                        to="/allToys"
+                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          pathName == "/allToys" ? "bg-orange-600" : ""
+                        }`}
+                      >
+                        All toys
                       </Link>
                       {user ? (
                         <Link
                           to={`/myToys/${auth?.currentUser?.email}`}
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                          className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                            pathName == myToysURL ? "bg-orange-600" : ""
+                          }`}
                         >
                           My toys
                         </Link>
@@ -86,9 +102,11 @@ const Header = () => {
                       {user ? (
                         <Link
                           to="/addToy"
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                          className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                            pathName == "/addToy" ? "bg-orange-600" : ""
+                          }`}
                         >
-                          Add toy
+                          Add a toy
                         </Link>
                       ) : (
                         ""

@@ -6,7 +6,9 @@
 @tailwind utilities;
 
 
-
+.active{
+    
+}
 
 @media only screen and (max-width: 576px) {
     .display-hide-in-sm{
