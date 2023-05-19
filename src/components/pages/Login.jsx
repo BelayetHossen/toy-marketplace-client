@@ -31,6 +31,7 @@ const Login = () => {
         setWarning(error.message);
       });
   };
+
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0 bg-slate-300">
       <div className="md:w-1/3 max-w-sm">
@@ -41,9 +42,10 @@ const Login = () => {
       </div>
       <div className="md:w-1/3 max-w-sm">
         {location.state && (
-          <Alert className="bg-red-600">Login first to access !</Alert>
+          <Alert className="bg-red-600 p-2 rounded mb-3">
+            Login first to access !
+          </Alert>
         )}
-        {warning && <Alert className="bg-red-600">{warning}</Alert>}
 
         <GoogleLogin></GoogleLogin>
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
@@ -51,6 +53,9 @@ const Login = () => {
             Or
           </p>
         </div>
+        {warning && (
+          <Alert className="bg-red-600 p-2 rounded mb-3">{warning}</Alert>
+        )}
         <form onSubmit={loginEmailPass} className="text-black">
           <input
             className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
