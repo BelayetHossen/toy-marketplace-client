@@ -73,12 +73,16 @@ const Header = () => {
                       >
                         Home
                       </Link>
-                      <Link
-                        to="/"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                      >
-                        Home
-                      </Link>
+                      {user ? (
+                        <Link
+                          to={`/myToys/${auth?.currentUser?.email}`}
+                          className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                        >
+                          My toys
+                        </Link>
+                      ) : (
+                        ""
+                      )}
                       {user ? (
                         <Link
                           to="/addToy"

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
 
 const GoogleLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
@@ -25,9 +26,12 @@ const GoogleLogin = () => {
         <button
           onClick={LoginGoogleHandler}
           type="button"
-          className="p-3 bg-orange-600 hover:bg-orange-700 text-white shadow-[0_4px_9px_-4px_#3b71ca]"
+          className="rounded p-3 bg-orange-600 hover:bg-orange-700 text-white shadow-[0_4px_9px_-4px_#3b71ca]"
         >
-          Sign In with google
+          <div className="flex items-center">
+            Sign In with google
+            <FaGoogle className="ml-3"></FaGoogle>
+          </div>
         </button>
       </div>
     </div>
