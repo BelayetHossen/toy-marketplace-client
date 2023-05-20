@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <Alltoys></Alltoys>,
       },
       {
-        path: "/myToys/:email",
+        path: "/myToys",
         element: <MyToys></MyToys>,
       },
       {

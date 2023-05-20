@@ -91,7 +91,7 @@ const Header = () => {
                       </Link>
                       {user ? (
                         <Link
-                          to={`/myToys/${auth?.currentUser?.email}`}
+                          to={`/myToys`}
                           className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                             pathName == myToysURL ? "bg-orange-600" : ""
                           }`}

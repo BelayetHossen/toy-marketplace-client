@@ -80,7 +80,7 @@ const Login = () => {
         </div> */}
           <div className="text-center md:text-left">
             <button
-              className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+              className="mt-4 bg-orange-500 hover:bg-orange-500 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
               type="submit"
             >
               Login

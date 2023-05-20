@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Alert } from "react-daisyui";
 
 const Alltoys = () => {
   const [allToys, setAllToys] = useState([]);
+
   const url = `http://localhost:5000/allToys20`;
   useEffect(() => {
     fetch(url)
@@ -15,7 +17,15 @@ const Alltoys = () => {
   };
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
-      {allToys.length}
+      {allToys.length == 0 ? (
+        <Alert className="bg-green-600 p-2 rounded mb-3">
+          Data is loading. plese wait........
+        </Alert>
+      ) : (
+        <h4 className="text-3xl py-4 text-center uppercase text-gray-600 font-bold">
+          All toys
+        </h4>
+      )}
       <div className="grid gap-4 md:grid-cols-4">
         {allToys.map((toy) => (
           <>
@@ -24,11 +34,11 @@ const Alltoys = () => {
                 <img src={toy.photoUrl} alt="Shoes" className="rounded-xl" />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title">{toy.name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title text-gray-600">{toy.name}</h2>
+                <p className="text-gray-500">Price: ৳{toy.price}</p>
                 <div className="card-actions">
                   <button className="btn btn-sm bg-orange-500 hover:bg-orange-600 border-none">
-                    Buy Now
+                    View details
                   </button>
                 </div>
               </div>
@@ -37,7 +47,7 @@ const Alltoys = () => {
         ))}
       </div>
 
-      <div className="text-center">
+      <div className={`text-center ${allToys.length >= 20 ? "" : "hidden"} `}>
         <button
           onClick={getAllData}
           className="btn bg-orange-500 hover:bg-orange-600 mt-8 border-none"

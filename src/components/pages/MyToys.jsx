@@ -4,10 +4,13 @@ import { Alert } from "react-daisyui";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import { confirmAlert } from "react-confirm-alert";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myLoadedToys, setMyLoadedToys] = useState([]);
+  console.log(user);
 
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {
@@ -17,23 +20,34 @@ const MyToys = () => {
   }, [url]);
 
   const handleDelete = (id) => {
-    const proceed = confirm("Are You sure you want to delete");
-    if (proceed) {
-      fetch(`http://localhost:5000/toy/delete/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            toast.success("Data deleted successfully! ");
-            const remaining = myLoadedToys.filter(
-              (booking) => booking._id !== id
-            );
-            setMyLoadedToys(remaining);
-          }
-        });
-    }
+    confirmAlert({
+      title: "Confirm to Delete",
+      message: "Are You sure you want to delete?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () =>
+            fetch(`http://localhost:5000/toy/delete/${id}`, {
+              method: "DELETE",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                  toast.success("Data deleted successfully! ");
+                  const remaining = myLoadedToys.filter(
+                    (booking) => booking._id !== id
+                  );
+                  setMyLoadedToys(remaining);
+                }
+              }),
+        },
+        {
+          label: "No",
+          onClick: () => toast.success("Data is safe"),
+        },
+      ],
+    });
   };
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
