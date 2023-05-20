@@ -16,6 +16,21 @@ const Alltoys = () => {
       .then((data) => setAllToys(data));
   };
 
+  const searchInput = (e) => {
+    const key = e.target.value;
+    fetch("http://localhost:5000/search", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(key),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
       {allToys.length == 0 ? (
@@ -23,9 +38,18 @@ const Alltoys = () => {
           Data is loading. plese wait........
         </Alert>
       ) : (
-        <h4 className="text-3xl py-4 text-center uppercase text-gray-600 font-bold">
-          All toys
-        </h4>
+        <div className="flex md:flex-row flex-col justify-between items-center">
+          <h4 className="text-3xl py-4 uppercase text-gray-700 font-bold">
+            All toys
+          </h4>
+          <input
+            onChange={searchInput}
+            className="outline-none text-gray-700 px-2 h-10 rounded w-96"
+            type="text"
+            id="search"
+            placeholder="Search something.."
+          />
+        </div>
       )}
       <div className="grid gap-4 md:grid-cols-4">
         {allToys.map((toy) => (

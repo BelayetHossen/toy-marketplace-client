@@ -1,6 +1,7 @@
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
 import { Alert } from "react-daisyui";
+import { Link } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -123,9 +124,14 @@ const CategoriesTab = () => {
                         <h2 className="card-title text-gray-600">{toy.name}</h2>
                         <p className="text-gray-500">Price: ৳{toy.price}</p>
                         <div className="card-actions">
-                          <button className="btn btn-sm bg-orange-500 hover:bg-orange-600 border-none">
-                            View details
-                          </button>
+                          <Link to={`/detalis/${toy._id}`}>
+                            <button
+                              className="bg-orange-500 hover:bg-orange-600 text-white  font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button"
+                            >
+                              View details
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -162,9 +168,14 @@ const CategoriesTab = () => {
                         <h2 className="card-title text-gray-600">{toy.name}</h2>
                         <p className="text-gray-500">Price: ৳{toy.price}</p>
                         <div className="card-actions">
-                          <button className="btn btn-sm bg-orange-500 hover:bg-orange-600 border-none">
-                            View details
-                          </button>
+                          <Link to={`/detalis/${toy._id}`}>
+                            <button
+                              className="bg-orange-500 hover:bg-orange-600 text-white  font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button"
+                            >
+                              View details
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -201,9 +212,14 @@ const CategoriesTab = () => {
                         <h2 className="card-title text-gray-600">{toy.name}</h2>
                         <p className="text-gray-500">Price: ৳{toy.price}</p>
                         <div className="card-actions">
-                          <button className="btn btn-sm bg-orange-500 hover:bg-orange-600 border-none">
-                            View details
-                          </button>
+                          <Link to={`/detalis/${toy._id}`}>
+                            <button
+                              className="bg-orange-500 hover:bg-orange-600 text-white  font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button"
+                            >
+                              View details
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
