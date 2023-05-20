@@ -1,24 +1,19 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { Alert } from "react-daisyui";
 
 const PrivateRoutes = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
-  //   if (loading) {
-  //     return (
-  //       <div className="col-2 m-auto">
-  //         <RotatingLines
-  //           strokeColor="blue"
-  //           strokeWidth="5"
-  //           animationDuration="0.75"
-  //           width="96"
-  //           visible={true}
-  //         />
-  //       </div>
-  //     );
-  //   }
+  if (loading) {
+    return (
+      <Alert className="bg-green-600 p-2 rounded mb-3">
+        Data is loading. plese wait........
+      </Alert>
+    );
+  }
 
   if (user) {
     return children;

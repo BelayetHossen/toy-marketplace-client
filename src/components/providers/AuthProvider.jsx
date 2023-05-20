@@ -58,37 +58,6 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  //   useEffect(() => {
-  //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //       setUser(currentUser);
-  //       console.log("current user in auth Provider", currentUser);
-  //       //   setLoading(false);
-  //       if (currentUser && currentUser.email) {
-  //         const loggedUser = {
-  //           email: currentUser.email,
-  //         };
-  //         fetch("https://car-doctor-server-smoky.vercel.app/jwt", {
-  //           method: "POST",
-  //           headers: {
-  //             "content-type": "application/json",
-  //           },
-  //           body: JSON.stringify(loggedUser),
-  //         })
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             console.log("jwt response", data);
-  //             // Warning: Local storage is not the best (second best place) to store access token
-  //             localStorage.setItem("car-access-token", data.token);
-  //           });
-  //       } else {
-  //         localStorage.removeItem("car-access-token");
-  //       }
-  //     });
-  //     return () => {
-  //       return unsubscribe();
-  //     };
-  //   }, []);
-
   const authInfo = {
     auth,
     user,

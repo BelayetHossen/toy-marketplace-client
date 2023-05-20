@@ -10,7 +10,6 @@ import { confirmAlert } from "react-confirm-alert";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myLoadedToys, setMyLoadedToys] = useState([]);
-  console.log(user);
 
   const url = `http://localhost:5000/myToys?email=${user?.email}`;
   useEffect(() => {

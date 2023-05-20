@@ -70,14 +70,6 @@ const Login = () => {
             name="password"
           />
 
-          {/* <div className="mt-4 flex justify-between font-semibold text-sm">
-          <a
-            className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
-            href="#"
-          >
-            Forgot Password?
-          </a>
-        </div> */}
           <div className="text-center md:text-left">
             <button
               className="mt-4 bg-orange-500 hover:bg-orange-500 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
