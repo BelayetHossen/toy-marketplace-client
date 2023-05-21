@@ -77,11 +77,15 @@ const router = createBrowserRouter([
             `https://assignment-11-server-belayethossen.vercel.app/toy/edit/${params.id}`
           ),
       },
-      {
-        path: "/*",
-        element: <NotFound></NotFound>,
-      },
+      // {
+      //   path: "/*",
+      //   element: <NotFound></NotFound>,
+      // },
     ],
+  },
+  {
+    path: "/*",
+    element: <NotFound></NotFound>,
   },
 ]);
 
