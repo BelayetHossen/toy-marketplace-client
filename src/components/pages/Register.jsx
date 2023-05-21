@@ -4,6 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import PageTitle from "../PageTitle";
 
 const Register = () => {
   const { createUser, userNamePhoto } = useContext(AuthContext);
@@ -81,6 +82,7 @@ const Register = () => {
         />
       </div>
       <div className="md:w-1/3 max-w-sm">
+        <PageTitle />
         <ToastContainer />
         <GoogleLogin></GoogleLogin>
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">

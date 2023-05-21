@@ -1,16 +1,28 @@
-import ReactStars from "react-rating-stars-component";
 import { Link, useLoaderData } from "react-router-dom";
+import PageTitle from "../PageTitle";
 
 const Details = () => {
   const toy = useLoaderData();
-  const ratingChanged = (newRating) => {
-    console.log(newRating);
-  };
+
+  function getStars(rating) {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (rating - 1 < i) {
+        stars.push(<span>☆</span>);
+      } else {
+        stars.push(<span>★</span>);
+      }
+    }
+    return stars;
+  }
+
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
       <h3 className="text-3xl py-4 text-center uppercase text-gray-600 font-bold">
         Toy details
       </h3>
+
+      <PageTitle />
       <div className="flex gap-3 md:flex-row flex-col">
         <figure className="md:w-2/5 rounded-lg">
           <img className="rounded-lg" src={toy.photoUrl} alt="Album" />
@@ -28,13 +40,11 @@ const Details = () => {
               <span className="font-bold">Price:</span> {toy.price}
             </p>
             <p className="text-gray-500">
+              <span className="font-bold">Available QTY:</span> {toy.qty}
+            </p>
+            <p className="text-gray-500 ">
               <span className="font-bold">Rating:</span> {toy.rating}
-              <ReactStars
-                count={5}
-                onChange={ratingChanged}
-                size={24}
-                activeColor="#ffd700"
-              />
+              {getStars(toy.rating)}
             </p>
             <p className="text-gray-500">
               <span className="font-bold">Product description:</span>{" "}

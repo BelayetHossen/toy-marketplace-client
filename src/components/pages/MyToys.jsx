@@ -6,6 +6,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { confirmAlert } from "react-confirm-alert";
+import PageTitle from "../PageTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -54,6 +55,7 @@ const MyToys = () => {
         My all toys : {myLoadedToys.length} items
       </h3>
       <ToastContainer />
+      <PageTitle />
       {myLoadedToys.length > 0 ? (
         <div className="overflow-x-auto w-full">
           <table className="table w-full">

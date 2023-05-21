@@ -1,3 +1,4 @@
+import PageTitle from "../PageTitle";
 import CategoriesTab from "../layouts/CategoriesTab";
 import Contact from "../layouts/Contact";
 import Gallery from "../layouts/Gallery";
@@ -12,6 +13,7 @@ const Home = () => {
       <Gallery></Gallery>
       <Map></Map>
       <Contact></Contact>
+      <PageTitle />
     </div>
   );
 };

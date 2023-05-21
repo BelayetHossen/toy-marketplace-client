@@ -10,6 +10,7 @@ import Alltoys from "../pages/Alltoys";
 import Blogs from "../pages/Blogs";
 import PrivateRoutes from "./PrivateRoutes";
 import Details from "../pages/Details";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addToy",
-        element: <AddToy></AddToy>,
+        element: (
+          <PrivateRoutes>
+            <AddToy></AddToy>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/blogs",
@@ -60,9 +65,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/toy/edit/:id",
-        element: <EditToy></EditToy>,
+        element: (
+          <PrivateRoutes>
+            <EditToy></EditToy>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/toy/edit/${params.id}`),
+      },
+      {
+        path: "/*",
+        element: <NotFound></NotFound>,
       },
     ],
   },

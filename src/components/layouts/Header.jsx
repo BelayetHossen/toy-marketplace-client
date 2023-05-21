@@ -30,8 +30,6 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
 
-  const myToysURL = `/myToys/${auth?.currentUser?.email}`;
-
   return (
     <div>
       <Disclosure as="nav" className="bg-gray-600">
@@ -93,7 +91,7 @@ const Header = () => {
                         <Link
                           to={`/myToys`}
                           className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
-                            pathName == myToysURL ? "bg-orange-600" : ""
+                            pathName == "/myToys" ? "bg-orange-600" : ""
                           }`}
                         >
                           My toys
@@ -113,6 +111,14 @@ const Header = () => {
                       ) : (
                         ""
                       )}
+                      <Link
+                        to="/*"
+                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          pathName == "/*" ? "bg-orange-600" : ""
+                        }`}
+                      >
+                        Not found
+                      </Link>
                     </div>
                   </div>
                 </div>

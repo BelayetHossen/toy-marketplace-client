@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
 import { Alert } from "react-daisyui";
 import { Link } from "react-router-dom";
+import PageTitle from "../PageTitle";
 
 const Alltoys = () => {
   const [allToys, setAllToys] = useState([]);
+  const [fullToys, setFullToys] = useState([]);
   const url = `http://localhost:5000/allToys20`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, [url]);
+  useEffect(() => {
+    fetch("http://localhost:5000/allToys")
+      .then((res) => res.json())
+      .then((data) => setFullToys(data));
+  }, []);
   const getAllData = () => {
     fetch("http://localhost:5000/allToys")
       .then((res) => res.json())
@@ -31,6 +38,7 @@ const Alltoys = () => {
         <h4 className="text-3xl py-4 uppercase text-gray-700 font-bold">
           All toys
         </h4>
+        <PageTitle />
         <input
           onChange={searchInput}
           className="outline-none text-gray-700 px-2 h-10 rounded w-96 mb-3"
@@ -71,7 +79,11 @@ const Alltoys = () => {
         ))}
       </div>
 
-      <div className={`text-center ${allToys.length >= 20 ? "" : "hidden"} `}>
+      <div
+        className={`text-center ${
+          parseInt(allToys.length) == parseInt(fullToys.length) ? "hidden" : ""
+        } `}
+      >
         <button
           onClick={getAllData}
           className="btn bg-orange-500 hover:bg-orange-600 mt-8 border-none"

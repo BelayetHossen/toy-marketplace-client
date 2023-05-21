@@ -1,6 +1,9 @@
+import PageTitle from "../PageTitle";
+
 const Blogs = () => {
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
+      <PageTitle />
       <h4 className="text-3xl py-4 uppercase text-gray-700 font-bold text-center">
         Blogs by JHM
       </h4>

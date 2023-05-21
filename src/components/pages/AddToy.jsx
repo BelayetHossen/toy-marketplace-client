@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../providers/AuthProvider";
+import PageTitle from "../PageTitle";
 
 const AddToy = () => {
   const { auth } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const AddToy = () => {
     const description = form.description.value;
     const price = form.price.value;
     const rating = form.rating.value;
+    const qty = form.qty.value;
     const seller = form.seller.value;
     const seller_phone = form.seller_phone.value;
     const seller_email = form.seller_email.value;
@@ -25,6 +27,7 @@ const AddToy = () => {
       description,
       price,
       rating,
+      qty,
       seller,
       seller_phone,
       seller_email,
@@ -37,6 +40,7 @@ const AddToy = () => {
       description != "" &&
       price != "" &&
       rating != "" &&
+      qty != "" &&
       seller != "" &&
       seller_phone != "" &&
       seller_email != ""
@@ -63,6 +67,7 @@ const AddToy = () => {
   return (
     <div className="mx-auto max-w-3xl px-2 sm:px-6 lg:px-8 my-8">
       <ToastContainer />
+      <PageTitle />
       <h4 className="py-3 text-3xl text-center text-stone-900">Add new toy</h4>
       <form onSubmit={handleAddToy} className="text-black">
         <input
@@ -99,6 +104,13 @@ const AddToy = () => {
           name="rating"
           min="0"
           max="5"
+        />
+        <input
+          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+          type="number"
+          placeholder="Available QTY"
+          name="qty"
+          min="0"
         />
         <input
           className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"

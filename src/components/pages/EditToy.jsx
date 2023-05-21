@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import PageTitle from "../PageTitle";
 
 const EditToy = () => {
   const { auth } = useContext(AuthContext);
@@ -71,6 +72,7 @@ const EditToy = () => {
   return (
     <div className="mx-auto max-w-3xl px-2 sm:px-6 lg:px-8 my-8">
       <ToastContainer />
+      <PageTitle />
       <h4 className="py-3 text-3xl text-center text-stone-900">
         Update toy : {loadedToy.name}
       </h4>
