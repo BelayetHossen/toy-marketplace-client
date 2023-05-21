@@ -15,7 +15,9 @@ const CategoriesTab = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/category?category=Science`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/category?category=Science`
+    )
       .then((res) => res.json())
       .then((data) => {
         setScienceData(data);
@@ -24,7 +26,9 @@ const CategoriesTab = () => {
   }, []);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/category?category=Science`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/category?category=Science`
+    )
       .then((res) => res.json())
       .then((data) => {
         setScienceData(data);
@@ -34,7 +38,9 @@ const CategoriesTab = () => {
 
   const scienceHandller = () => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/category?category=Science`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/category?category=Science`
+    )
       .then((res) => res.json())
       .then((data) => {
         setScienceData(data);
@@ -43,7 +49,9 @@ const CategoriesTab = () => {
   };
   const mathHandller = () => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/category?category=Math`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/category?category=Math`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMathData(data);
@@ -52,7 +60,9 @@ const CategoriesTab = () => {
   };
   const engineeringHandller = () => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/category?category=Engineering`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/category?category=Engineering`
+    )
       .then((res) => res.json())
       .then((data) => {
         setEngineeringData(data);

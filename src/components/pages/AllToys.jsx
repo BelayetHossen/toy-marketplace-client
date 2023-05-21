@@ -7,7 +7,7 @@ const Alltoys = () => {
   const [allToys, setAllToys] = useState([]);
   const [fullToys, setFullToys] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const url = `http://localhost:5000/allToys20`;
+  const url = `https://assignment-11-server-belayethossen.vercel.app/allToys20`;
   useEffect(() => {
     setIsLoading(true);
     fetch(url)
@@ -19,7 +19,7 @@ const Alltoys = () => {
   }, [url]);
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/allToys")
+    fetch("https://assignment-11-server-belayethossen.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setFullToys(data);
@@ -28,7 +28,7 @@ const Alltoys = () => {
   }, []);
   const getAllData = () => {
     setIsLoading(true);
-    fetch("http://localhost:5000/allToys")
+    fetch("https://assignment-11-server-belayethossen.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -39,7 +39,9 @@ const Alltoys = () => {
   const searchInput = (e) => {
     setIsLoading(true);
     const key = e.target.value;
-    fetch(`http://localhost:5000/search?name=${key}`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/search?name=${key}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
@@ -49,7 +51,9 @@ const Alltoys = () => {
   const sortByPrice = (e) => {
     setIsLoading(true);
     const key = e.target.value;
-    fetch(`http://localhost:5000/sort?sort=${key}`)
+    fetch(
+      `https://assignment-11-server-belayethossen.vercel.app/sort?sort=${key}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);

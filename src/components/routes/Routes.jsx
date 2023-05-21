@@ -61,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toy/details/${params.id}`),
+          fetch(
+            `https://assignment-11-server-belayethossen.vercel.app/toy/details/${params.id}`
+          ),
       },
       {
         path: "/toy/edit/:id",
@@ -71,7 +73,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toy/edit/${params.id}`),
+          fetch(
+            `https://assignment-11-server-belayethossen.vercel.app/toy/edit/${params.id}`
+          ),
       },
       {
         path: "/*",

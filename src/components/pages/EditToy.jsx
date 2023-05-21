@@ -48,13 +48,16 @@ const EditToy = () => {
       seller_phone != "" &&
       seller_email != ""
     ) {
-      fetch("http://localhost:5000/toy/update/", {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(toy),
-      })
+      fetch(
+        "https://assignment-11-server-belayethossen.vercel.app/toy/update/",
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(toy),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
