@@ -58,7 +58,7 @@ const EditToy = () => {
           if (data.modifiedCount == 1) {
             toast.success("Data updated successfully! Redirecting .......");
             setTimeout(() => {
-              navigate(`/myToys/${auth?.currentUser?.email}`, {
+              navigate(`/myToys/`, {
                 replace: true,
               });
             }, 2000);

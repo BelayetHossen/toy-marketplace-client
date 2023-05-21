@@ -18,39 +18,33 @@ const Alltoys = () => {
 
   const searchInput = (e) => {
     const key = e.target.value;
-    fetch("http://localhost:5000/search", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(key),
-    })
+    fetch(`http://localhost:5000/search?name=${key}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setAllToys(data);
       });
   };
 
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
-      {allToys.length == 0 ? (
-        <Alert className="bg-green-600 p-2 rounded mb-3">
-          Data is loading. plese wait........
+      <div className="flex md:flex-row flex-col justify-between items-center">
+        <h4 className="text-3xl py-4 uppercase text-gray-700 font-bold">
+          All toys
+        </h4>
+        <input
+          onChange={searchInput}
+          className="outline-none text-gray-700 px-2 h-10 rounded w-96 mb-3"
+          type="text"
+          id="search"
+          placeholder="Search something.."
+        />
+      </div>
+      {allToys.length == 0 && (
+        <Alert className="bg-red-600 p-2 rounded mb-3">
+          Not found any data by this title.... try another keys
         </Alert>
-      ) : (
-        <div className="flex md:flex-row flex-col justify-between items-center">
-          <h4 className="text-3xl py-4 uppercase text-gray-700 font-bold">
-            All toys
-          </h4>
-          <input
-            onChange={searchInput}
-            className="outline-none text-gray-700 px-2 h-10 rounded w-96"
-            type="text"
-            id="search"
-            placeholder="Search something.."
-          />
-        </div>
       )}
+
       <div className="grid gap-4 md:grid-cols-4">
         {allToys.map((toy) => (
           <>
