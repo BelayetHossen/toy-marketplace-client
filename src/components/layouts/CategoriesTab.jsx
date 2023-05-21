@@ -1,5 +1,5 @@
 import { Tab } from "@headlessui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert } from "react-daisyui";
 import { Link } from "react-router-dom";
 
@@ -11,25 +11,55 @@ const CategoriesTab = () => {
   const [scienceData, setScienceData] = useState([]);
   const [mathData, setMathData] = useState([]);
   const [engineeringData, setEngineeringData] = useState([]);
-  fetch(`http://localhost:5000/category?category=Science`)
-    .then((res) => res.json())
-    .then((data) => setScienceData(data));
-  const scienceHandller = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/category?category=Science`)
       .then((res) => res.json())
-      .then((data) => setScienceData(data));
+      .then((data) => {
+        setScienceData(data);
+        setIsLoading(false);
+      });
+  }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`http://localhost:5000/category?category=Science`)
+      .then((res) => res.json())
+      .then((data) => {
+        setScienceData(data);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const scienceHandller = () => {
+    setIsLoading(true);
+    fetch(`http://localhost:5000/category?category=Science`)
+      .then((res) => res.json())
+      .then((data) => {
+        setScienceData(data);
+        setIsLoading(false);
+      });
   };
   const mathHandller = () => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/category?category=Math`)
       .then((res) => res.json())
-      .then((data) => setMathData(data));
+      .then((data) => {
+        setMathData(data);
+        setIsLoading(false);
+      });
   };
   const engineeringHandller = () => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/category?category=Engineering`)
       .then((res) => res.json())
-      .then((data) => setEngineeringData(data));
+      .then((data) => {
+        setEngineeringData(data);
+        setIsLoading(false);
+      });
   };
-  console.log(scienceData);
+
   return (
     <div className="bg-slate-300">
       <div className="max-w-7xl px-2 py-16 sm:px-6 lg:px-8 mx-auto ">
@@ -101,9 +131,10 @@ const CategoriesTab = () => {
                 "ring-orange-500 ring-opacity-60 ring-offset-2 ring-offset-orange-500 focus:outline-none focus:ring-2"
               )}
             >
+              {isLoading && <progress className="progress w-full"></progress>}
               {scienceData.length == 0 && (
-                <Alert className="bg-green-500 p-2 rounded mb-3">
-                  Data is loading. please wait...................
+                <Alert className="bg-red-500 p-2 rounded mb-3">
+                  No data available !
                 </Alert>
               )}
               <div className="grid gap-4 md:grid-cols-4">
@@ -145,9 +176,10 @@ const CategoriesTab = () => {
                 "ring-orange-500 ring-opacity-60 ring-offset-2 ring-offset-orange-500 focus:outline-none focus:ring-2"
               )}
             >
+              {isLoading && <progress className="progress w-full"></progress>}
               {mathData.length == 0 && (
-                <Alert className="bg-green-500 p-2 rounded mb-3">
-                  Data is loading. please wait...................
+                <Alert className="bg-red-500 p-2 rounded mb-3">
+                  No data available !
                 </Alert>
               )}
               <div className="grid gap-4 md:grid-cols-4">
@@ -189,9 +221,10 @@ const CategoriesTab = () => {
                 "ring-orange-500 ring-opacity-60 ring-offset-2 ring-offset-orange-500 focus:outline-none focus:ring-2"
               )}
             >
+              {isLoading && <progress className="progress w-full"></progress>}
               {engineeringData.length == 0 && (
-                <Alert className="bg-green-500 p-2 rounded mb-3">
-                  Data is loading. please wait...................
+                <Alert className="bg-red-500 p-2 rounded mb-3">
+                  No data available !
                 </Alert>
               )}
               <div className="grid gap-4 md:grid-cols-4">

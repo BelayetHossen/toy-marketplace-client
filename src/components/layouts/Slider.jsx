@@ -2,15 +2,18 @@ const Slider = () => {
   return (
     <div className="carousel w-full md:h-[550px] h-[300px]">
       <div id="slide1" className="carousel-item relative w-full">
-        <img src="../../../public/bn1.jpg" className="w-full" />
+        <img
+          src="https://i.ibb.co/3W7TRc8/bbbbbbbbbbbb.jpg"
+          className="w-full"
+        />
         <div className="absolute flex items-center h-full left-0 top-0 max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="text-white space-y-7 pl-12 w-1/2">
+          <div className="text-gray-600 space-y-7 pl-12 w-1/2">
             <h2 className="md:text-6xl text-3xl font-bold">
-              Affordable Price For Car Servicing
+              All the latest Science toys
             </h2>
             <p className="display-hide-in-sm">
-              There are many variations of passages of available, but the
-              majority have suffered alteration in some form
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequuntur exercitationem molestiae quasi sunt
             </p>
             <div className="display-hide-in-sm">
               <button className="btn bg-orange-500 hover:bg-orange-600 mr-5">
@@ -33,15 +36,15 @@ const Slider = () => {
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <img src="../../../public/bn1.jpg" className="w-full" />
+        <img src="https://i.ibb.co/v1Sc6yR/bnnnn1.jpg" className="w-full" />
         <div className="absolute flex items-center h-full left-0 top-0 max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="text-white space-y-7 pl-12 w-1/2">
+          <div className="text-gray-600 space-y-7 pl-12 w-1/2">
             <h2 className="md:text-6xl text-3xl font-bold">
-              Affordable Price For Car Servicing
+              Care your baby with EDU
             </h2>
             <p className="display-hide-in-sm">
-              There are many variations of passages of available, but the
-              majority have suffered alteration in some form
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi
+              velit fuga adipisci?
             </p>
             <div className="display-hide-in-sm">
               <button className="btn bg-orange-500 hover:bg-orange-600 mr-5">
@@ -61,15 +64,15 @@ const Slider = () => {
         </div>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img src="https://ibb.co/KVs56Kj" className="w-full" />
+        <img src="https://i.ibb.co/LtjGNfs/bnnnn2.jpg" className="w-full" />
         <div className="absolute flex items-center h-full left-0 top-0 max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="text-white space-y-7 pl-12 w-1/2">
+          <div className="text-gray-600 space-y-7 pl-12 w-1/2">
             <h2 className="md:text-6xl text-3xl font-bold">
-              Affordable Price For Car Servicing
+              Robotic baby toys
             </h2>
             <p className="display-hide-in-sm">
-              There are many variations of passages of available, but the
-              majority have suffered alteration in some form
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Corporis, quisquam.
             </p>
             <div className="display-hide-in-sm">
               <button className="btn bg-orange-500 hover:bg-orange-600 mr-5">
@@ -89,15 +92,15 @@ const Slider = () => {
         </div>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src="https://ibb.co/KVs56Kj" className="w-full" />
+        <img src="https://i.ibb.co/g3Jr2GH/bnnnn3.jpg" className="w-full" />
         <div className="absolute flex items-center h-full left-0 top-0 max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="text-white space-y-7 pl-12 w-1/2">
+          <div className="text-gray-600 space-y-7 pl-12 w-1/2">
             <h2 className="md:text-6xl text-3xl font-bold">
-              Affordable Price For Car Servicing
+              Math toy for your baby
             </h2>
             <p className="display-hide-in-sm">
-              There are many variations of passages of available, but the
-              majority have suffered alteration in some form
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+              consectetur nemo vero?
             </p>
             <div className="display-hide-in-sm">
               <button className="btn bg-orange-500 hover:bg-orange-600 mr-5">

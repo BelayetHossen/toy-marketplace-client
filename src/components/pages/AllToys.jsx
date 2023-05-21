@@ -6,37 +6,54 @@ import PageTitle from "../PageTitle";
 const Alltoys = () => {
   const [allToys, setAllToys] = useState([]);
   const [fullToys, setFullToys] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const url = `http://localhost:5000/allToys20`;
   useEffect(() => {
+    setIsLoading(true);
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setAllToys(data));
+      .then((data) => {
+        setAllToys(data);
+        setIsLoading(false);
+      });
   }, [url]);
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:5000/allToys")
       .then((res) => res.json())
-      .then((data) => setFullToys(data));
+      .then((data) => {
+        setFullToys(data);
+        setIsLoading(false);
+      });
   }, []);
   const getAllData = () => {
+    setIsLoading(true);
     fetch("http://localhost:5000/allToys")
       .then((res) => res.json())
-      .then((data) => setAllToys(data));
+      .then((data) => {
+        setAllToys(data);
+        setIsLoading(false);
+      });
   };
 
   const searchInput = (e) => {
+    setIsLoading(true);
     const key = e.target.value;
     fetch(`http://localhost:5000/search?name=${key}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
+        setIsLoading(false);
       });
   };
   const sortByPrice = (e) => {
+    setIsLoading(true);
     const key = e.target.value;
     fetch(`http://localhost:5000/sort?sort=${key}`)
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
+        setIsLoading(false);
       });
   };
 
@@ -51,7 +68,7 @@ const Alltoys = () => {
           onChange={sortByPrice}
           className="outline-none text-gray-700 px-2 h-10 rounded w-96 mb-3"
         >
-          <option value="">-Sort by price-</option>
+          <option value="">-Sort -</option>
           <option value="asc">Lowest price</option>
           <option value="desc">Heighest price</option>
         </select>
@@ -68,6 +85,7 @@ const Alltoys = () => {
           Not found any data by this title.... try another keys
         </Alert>
       )}
+      {isLoading && <progress className="progress w-full"></progress>}
 
       <div className="grid gap-4 md:grid-cols-4">
         {allToys.map((toy) => (
@@ -94,7 +112,7 @@ const Alltoys = () => {
           </>
         ))}
       </div>
-
+      {isLoading && <progress className="progress w-full"></progress>}
       <div
         className={`text-center ${
           parseInt(allToys.length) == parseInt(fullToys.length) ? "hidden" : ""

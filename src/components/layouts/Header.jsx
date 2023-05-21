@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <div>
-      <Disclosure as="nav" className="bg-gray-600">
+      <Disclosure as="nav" className="">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -51,13 +51,14 @@ const Header = () => {
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <img
+                      width="300px"
                       className="block h-8 w-auto lg:hidden"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="https://i.ibb.co/sQCQXDG/logo.png"
                       alt="Your Company"
                     />
                     <img
                       className="hidden h-8 w-auto lg:block"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="https://i.ibb.co/sQCQXDG/logo.png"
                       alt="Your Company"
                     />
                   </div>
@@ -65,7 +66,7 @@ const Header = () => {
                     <div className="flex space-x-4">
                       <Link
                         to="/"
-                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                        className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                           pathName == "/" ? "bg-orange-600" : ""
                         }`}
                       >
@@ -73,7 +74,7 @@ const Header = () => {
                       </Link>
                       <Link
                         to="/blogs"
-                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                        className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                           pathName == "/blogs" ? "bg-orange-600" : ""
                         }`}
                       >
@@ -81,7 +82,7 @@ const Header = () => {
                       </Link>
                       <Link
                         to="/allToys"
-                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                        className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                           pathName == "/allToys" ? "bg-orange-600" : ""
                         }`}
                       >
@@ -90,7 +91,7 @@ const Header = () => {
                       {user ? (
                         <Link
                           to={`/myToys`}
-                          className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                             pathName == "/myToys" ? "bg-orange-600" : ""
                           }`}
                         >
@@ -102,7 +103,7 @@ const Header = () => {
                       {user ? (
                         <Link
                           to="/addToy"
-                          className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                          className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                             pathName == "/addToy" ? "bg-orange-600" : ""
                           }`}
                         >
@@ -113,7 +114,7 @@ const Header = () => {
                       )}
                       <Link
                         to="/*"
-                        className={`text-gray-300 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
+                        className={`text-gray-700 hover:bg-orange-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium ${
                           pathName == "/*" ? "bg-orange-600" : ""
                         }`}
                       >
@@ -138,7 +139,7 @@ const Header = () => {
 
                       <Link
                         onClick={handleLogout}
-                        className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-2"
+                        className="rounded-full bg-orange-500 p-1 text-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-2"
                       >
                         Logout
                       </Link>
@@ -146,7 +147,7 @@ const Header = () => {
                   ) : (
                     <button
                       type="button"
-                      className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                      className="rounded-full bg-orange-500 p-1 text-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                     >
                       <Link to="/login">Login/Resister</Link>
                     </button>
@@ -164,8 +165,8 @@ const Header = () => {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-gray-900 text-white"
-                        : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        ? "bg-orange-500 text-white"
+                        : "bg-orange-500 hover:bg-orange-600 hover:text-white",
                       "block rounded-md px-3 py-2 text-base font-medium"
                     )}
                     aria-current={item.current ? "page" : undefined}
