@@ -31,6 +31,14 @@ const Alltoys = () => {
         setAllToys(data);
       });
   };
+  const sortByPrice = (e) => {
+    const key = e.target.value;
+    fetch(`http://localhost:5000/sort?sort=${key}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllToys(data);
+      });
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-8">
@@ -39,6 +47,14 @@ const Alltoys = () => {
           All toys
         </h4>
         <PageTitle />
+        <select
+          onChange={sortByPrice}
+          className="outline-none text-gray-700 px-2 h-10 rounded w-96 mb-3"
+        >
+          <option value="">-Sort by price-</option>
+          <option value="asc">Lowest price</option>
+          <option value="desc">Heighest price</option>
+        </select>
         <input
           onChange={searchInput}
           className="outline-none text-gray-700 px-2 h-10 rounded w-96 mb-3"

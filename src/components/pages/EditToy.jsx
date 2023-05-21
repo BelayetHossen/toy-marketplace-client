@@ -18,6 +18,7 @@ const EditToy = () => {
     const description = form.description.value;
     const price = form.price.value;
     const rating = form.rating.value;
+    const qty = form.rating.qty;
     const seller = form.seller.value;
     const seller_phone = form.seller_phone.value;
     const seller_email = form.seller_email.value;
@@ -30,6 +31,7 @@ const EditToy = () => {
       description,
       price,
       rating,
+      qty,
       seller,
       seller_phone,
       seller_email,
@@ -130,6 +132,13 @@ const EditToy = () => {
           placeholder="Rating"
           name="rating"
           defaultValue={loadedToy.rating}
+        />
+        <input
+          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+          type="number"
+          placeholder="Available QTY"
+          name="qty"
+          defaultValue={loadedToy.qty}
         />
         <input
           className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
